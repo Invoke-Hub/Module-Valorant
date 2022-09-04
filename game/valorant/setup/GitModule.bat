@@ -13,7 +13,6 @@ set /P O=Enter git option:
         rmdir .git /s /q
         git init
         git remote add module-valorant https://github.com/Invoke-Hub/Module-Valorant.git
-        ::git reset --hard module-valorant/main
         git pull
         git checkout -f module-valorant/main
         exit
@@ -26,16 +25,13 @@ set /P O=Enter git option:
         git add ./readme.md
         git commit -m "%C%"
         git push -u module-valorant HEAD:main
-        ::rmdir .git /s /q
         exit
     )
 
     :switch-case-O-pull
-        ::rmdir .git /s /q
         cd ./src/modules/
         git init .
         git branch -M main
         git remote add module-valorant https://github.com/Invoke-Hub/Module-Valorant.git
         git pull module-valorant main
-        ::rmdir .git /s /q
         exit
