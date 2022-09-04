@@ -10,10 +10,12 @@ set /P O=Enter git option:
 
     :switch-case-O-init
         cd ./src/modules/
-        git init .
+        rmdir .git /s /q
+        git init
         git remote add module-valorant https://github.com/Invoke-Hub/Module-Valorant.git
-        git pull module-valorant main
-        git branch -M main
+        ::git reset --hard module-valorant/main
+        git pull
+        git checkout -f module-valorant/main
         exit
 
     :switch-case-O-push (
@@ -23,7 +25,7 @@ set /P O=Enter git option:
         git add ./game/valorant/*
         git add ./readme.md
         git commit -m "%C%"
-        git push -u module-valorant main
+        git push -u module-valorant HEAD:main
         ::rmdir .git /s /q
         exit
     )
