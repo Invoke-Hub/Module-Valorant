@@ -125,7 +125,7 @@ export default class CRetrieveMMR extends MValorant {
                 measureCenter: true
             })
 
-            this.embed.file = new AttachmentBuilder(this.embed.canvas.canvas.toBuffer(), { name: 'profile-image.png' })
+            this.embed.files = [new AttachmentBuilder(this.embed.canvas.canvas.toBuffer(), { name: 'profile-image.png' })]
 
             this.embed
                 .setImage('attachment://profile-image.png')

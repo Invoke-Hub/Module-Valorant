@@ -43,6 +43,6 @@ export abstract class CMMR {
             region: playerRegion,
         }, new CEmbedBuilder({
             interaction: interaction
-        })).execute().then(api => api.embed.sendMessageWithFile())
+        })).execute().then(api => api.embed.sendMessage())
     }
 }
