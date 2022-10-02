@@ -1,4 +1,4 @@
-import { CommandInteraction } from "discord.js";
+import { ApplicationCommandOptionType, CommandInteraction } from "discord.js";
 import { Discord, Slash, SlashChoice, SlashGroup, SlashOption } from "discordx";
 import CEmbedBuilder from "../../../main/utilities/embedbuilder/controllers/CEmbedBuilder.js";
 import CRetrieveMMR from "../controllers/CRetrieveMMR.js";
@@ -21,9 +21,9 @@ export abstract class CMMR {
      */
     @Slash({ name: "mmr", description: "Displays valorant user mmr" })
     async profile(
-        @SlashOption({ name: "name", description: "player name" })
+        @SlashOption({ name: "name", description: "player name", type: ApplicationCommandOptionType.String })
         playerName: string,
-        @SlashOption({ name: "tagline", description: "player tagline" })
+        @SlashOption({ name: "tagline", description: "player tagline", type: ApplicationCommandOptionType.String })
         playerTagLine: string,
         @SlashChoice({ name: "Asia Pacific", value: "ap" })
         @SlashChoice({ name: "Brazil", value: "br" })
@@ -31,7 +31,7 @@ export abstract class CMMR {
         @SlashChoice({ name: "Korea", value: "kr" })
         @SlashChoice({ name: "Latin America", value: "latam" })
         @SlashChoice({ name: "North America", value: "na" })
-        @SlashOption({ name: "region", description: "What region?" })
+        @SlashOption({ name: "region", description: "What region?", type: ApplicationCommandOptionType.String })
         playerRegion: string,
         interaction: CommandInteraction
     ): Promise<void> {
