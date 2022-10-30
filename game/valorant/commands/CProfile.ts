@@ -21,9 +21,9 @@ export abstract class CProfile {
      */
     @Slash({ name: "profile", description: "Displays valorant user profile" })
     async profile(
-        @SlashOption({ name: "name", description: "player name", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "name", description: "player name", required: true, type: ApplicationCommandOptionType.String })
         playerName: string,
-        @SlashOption({ name: "tagline", description: "player tagline", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "tagline", description: "player tagline", required: true, type: ApplicationCommandOptionType.String })
         playerTagLine: string,
         @SlashChoice({ name: "Asia Pacific", value: "ap" })
         @SlashChoice({ name: "Brazil", value: "br" })
@@ -31,7 +31,7 @@ export abstract class CProfile {
         @SlashChoice({ name: "Korea", value: "kr" })
         @SlashChoice({ name: "Latin America", value: "latam" })
         @SlashChoice({ name: "North America", value: "na" })
-        @SlashOption({ name: "region", description: "What region?", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "region", description: "What region?", required: true, type: ApplicationCommandOptionType.String })
         playerRegion: string,
         @SlashChoice({ name: "Escalation", value: "escalation" })
         @SlashChoice({ name: "Spike Rush", value: "spikerush" })
@@ -41,7 +41,7 @@ export abstract class CProfile {
         @SlashChoice({ name: "Replication", value: "replication" })
         @SlashChoice({ name: "Snowball", value: "snowball" })
         @SlashChoice({ name: "Custom", value: "custom" })
-        @SlashOption({ name: "mode", description: "What game mode?", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "mode", description: "What game mode?", required: true, type: ApplicationCommandOptionType.String })
         mode: string,
         interaction: CommandInteraction
     ): Promise<void> {

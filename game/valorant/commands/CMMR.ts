@@ -21,9 +21,9 @@ export abstract class CMMR {
      */
     @Slash({ name: "mmr", description: "Displays valorant user mmr" })
     async profile(
-        @SlashOption({ name: "name", description: "player name", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "name", description: "player name", required: true, type: ApplicationCommandOptionType.String })
         playerName: string,
-        @SlashOption({ name: "tagline", description: "player tagline", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "tagline", description: "player tagline", required: true, type: ApplicationCommandOptionType.String })
         playerTagLine: string,
         @SlashChoice({ name: "Asia Pacific", value: "ap" })
         @SlashChoice({ name: "Brazil", value: "br" })
@@ -31,7 +31,7 @@ export abstract class CMMR {
         @SlashChoice({ name: "Korea", value: "kr" })
         @SlashChoice({ name: "Latin America", value: "latam" })
         @SlashChoice({ name: "North America", value: "na" })
-        @SlashOption({ name: "region", description: "What region?", type: ApplicationCommandOptionType.String })
+        @SlashOption({ name: "region", description: "What region?", required: true, type: ApplicationCommandOptionType.String })
         playerRegion: string,
         interaction: CommandInteraction
     ): Promise<void> {
